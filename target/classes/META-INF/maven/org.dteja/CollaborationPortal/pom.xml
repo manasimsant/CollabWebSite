@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
@@ -46,20 +46,18 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.1.0.Final</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.1.0.Final</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.197</version>
-			<scope>test</scope>
-		</dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0</version>
+        </dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<version>1.4.197</version> <scope>test</scope> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
 
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->

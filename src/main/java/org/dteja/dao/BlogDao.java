@@ -3,8 +3,7 @@ package org.dteja.dao;
 import java.util.List;
 
 import org.dteja.models.Blog;
-import org.springframework.stereotype.Service;
-@Service
+
 public interface BlogDao 
 {	
 	public boolean addBlog(Blog blog);

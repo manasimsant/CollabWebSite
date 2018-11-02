@@ -6,7 +6,9 @@ import javax.sql.DataSource;
 
 import org.dteja.models.Blog;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
@@ -14,47 +16,43 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@ComponentScan("org.dteja")
 @EnableTransactionManagement
-public class DBConfig {
-
-	@Bean(name="dataSource")
-	public DataSource getH2DataSource() {
-		
+public class DBConfig 
+{
+	@Bean
+	public DataSource getDataSource()
+	{
 		DriverManagerDataSource dataSource=new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:~/test");
-		dataSource.setUsername("sa");
-		dataSource.setPassword("sa");
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@myserver:1521/CollabDB");
+		dataSource.setUsername("CollabDB");
+		dataSource.setPassword("pass123");
+		System.out.println("--Created the DataSource -----");
 		return dataSource;
-		
 	}
 	
-	@Bean(name="sessionFactory")
-	public SessionFactory getSessionFactory()
+	@Autowired
+	@Bean
+	public SessionFactory getSessionFactory(DataSource dataSource)
 	{
-		Properties hibernateProperties=new Properties();
-		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
-		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		Properties hibernateProp=new Properties();
+		hibernateProp.put("hibernate.hbmddl2.auto", "update");
+		hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		
-		LocalSessionFactoryBuilder localsessionFactory=new LocalSessionFactoryBuilder(getH2DataSource());
-		localsessionFactory.addProperties(hibernateProperties);
+		LocalSessionFactoryBuilder factoryBuilder=new LocalSessionFactoryBuilder(getDataSource());
+		factoryBuilder.addProperties(hibernateProp);
 		
-		localsessionFactory.addAnnotatedClass(Blog.class);
+		factoryBuilder.addAnnotatedClass(Blog.class);
 		
-		
-		SessionFactory sessionFactory=localsessionFactory.buildSessionFactory();
-		
-		return sessionFactory;
-	}
+		SessionFactory sessionFactory=factoryBuilder.buildSessionFactory();
+		System.out.println("--Created the sessionFactory -----");
+		return sessionFactory;	}
 	
-	@Bean(name="txManager")
-	public HibernateTransactionManager getHibernateTransactionmanager(SessionFactory sessionFactory)
-	{
+	@Autowired
+	@Bean
+	public HibernateTransactionManager getHibernateTransactionManager(SessionFactory sessionFactory) {
+		
 		return new HibernateTransactionManager(sessionFactory);
 	}
 }
-
-	
-	
-
-

@@ -1,0 +1,8 @@
+org\dteja\models\Job.class
+org\dteja\dao\BlogDao.class
+org\dteja\models\BlogComment.class
+org\dteja\config\DBConfig.class
+org\dteja\dao\BlogDaoImpl.class
+org\dteja\models\Blog.class
+org\dteja\CollaborationPortal\App.class
+org\dteja\dao\JobDao.class

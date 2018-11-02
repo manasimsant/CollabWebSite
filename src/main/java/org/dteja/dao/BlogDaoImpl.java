@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository("blogDao")
 @Transactional
 public class BlogDaoImpl implements BlogDao {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -22,7 +22,6 @@ public class BlogDaoImpl implements BlogDao {
 		try {
 			sessionFactory.getCurrentSession().save(blog);
 			return true;
-
 		} catch (Exception ex) {
 			return false;
 		}
@@ -37,7 +36,6 @@ public class BlogDaoImpl implements BlogDao {
 		} catch (Exception ex) {
 			return false;
 		}
-
 	}
 
 	@Override

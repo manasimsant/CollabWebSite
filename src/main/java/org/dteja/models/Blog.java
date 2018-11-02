@@ -2,7 +2,6 @@ package org.dteja.models;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,21 +15,19 @@ public class Blog
 	@Id
 	@GeneratedValue
 
-	@Column
 	private int BlogId;
-	@Column
+
 	private String BlogName;
-	@Column
+
 	private String BlogDescription;
-	@Column
+
 	private Date BlogDate;
-	@Column
+
 	private String LoginName;
-	@Column
+
 	private String Status;
-	@Column
 	private int Likes;
-	@Column
+
 	private int Dislikes;
 
 	public int getBlogId() {

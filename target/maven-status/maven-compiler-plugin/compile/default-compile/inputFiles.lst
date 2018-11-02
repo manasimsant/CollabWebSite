@@ -1,5 +1,8 @@
-D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\CollaborationPortalBackEnd\App.java
+D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\models\BlogComment.java
 D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\config\DBConfig.java
+D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\CollaborationPortal\App.java
+D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\models\Job.java
 D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\dao\BlogDaoImpl.java
+D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\dao\JobDao.java
 D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\dao\BlogDao.java
 D:\ManasiSant\CollaborationPortal\src\main\java\org\dteja\models\Blog.java
